@@ -8,3 +8,4 @@
 1. Staged content rendering
 2. Progress bar
 3. Passing props for the poll result rendering
+4. Using gh-pages package for github pages deploy
