@@ -38,7 +38,6 @@ function Result({ correct }) {
         <div className="result">
             <img src="https://cdn-icons-png.flaticon.com/512/2278/2278992.png" />
             <h2>You guessed {correct} answers out of {questions.length}</h2>
-            {/*TODO: refactor*/}
             <a href="/" className="button">
                 Try again
             </a>
