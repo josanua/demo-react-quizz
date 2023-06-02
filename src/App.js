@@ -1,6 +1,10 @@
 import React from "react";
 import {useState} from "react";
 import './index.scss';
+import winIcon from './assets/images/win_icon.png';
+import neutrallIcon from './assets/images/neutrall_emoji.jpg';
+import sadIcon from './assets/images/sad_emoji.png';
+
 
 
 const questions = [
@@ -33,17 +37,6 @@ const questions = [
     },
 ];
 
-function Result({ correct }) {
-    return (
-        <div className="result">
-            <img src="https://cdn-icons-png.flaticon.com/512/2278/2278992.png" />
-            <h2>You guessed {correct} answers out of {questions.length}</h2>
-            <a href="https://josanua.github.io/demo-react-quizz/" className="button">
-                Try again
-            </a>
-        </div>
-    );
-}
 
 function Game({step, question, onClickVariant}) {
     const percentage = Math.round((step / questions.length) * 100);
@@ -63,6 +56,23 @@ function Game({step, question, onClickVariant}) {
         </>
     );
 }
+
+function Result({ correct }) {
+
+    const homeLink = window.location.origin;
+    const selectIconTypeIMGUrl = (correct !== questions.length) ? sadIcon : winIcon;
+
+    return (
+        <div className="result">
+            <img src={selectIconTypeIMGUrl} />
+            <h2>You guessed {correct} answers out of {questions.length}</h2>
+            <a href={homeLink} className="button">
+                Try again
+            </a>
+        </div>
+    );
+}
+
 
 function App() {
     const [step, setStep] = useState(0);
